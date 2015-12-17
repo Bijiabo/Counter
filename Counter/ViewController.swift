@@ -7,12 +7,40 @@
 //
 
 import UIKit
+import RemoteControl
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
+    
+    var count: Int = 0 {
+        didSet {
+            label.text = "\(count)"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        RemoteControlManager.sharedManager.debug = false
+        RemoteControlManager.sharedManager.masterButton.click = {
+            print("hoho! click!!!")
+        }
+        
+        RemoteControlManager.sharedManager.remoteControlReveivedWithEventHandler = {
+            print("I am handler.")
+        }
+        
+        RemoteControlManager.sharedManager.masterButton.click = {
+            ++self.count
+        }
+        
+        RemoteControlManager.sharedManager.masterButton.doubleClick = {
+            --self.count
+        }
+        
+        RemoteControlManager.sharedManager.masterButton.tripleClick = {
+            self.count = 0
+        }
     }
 
     override func didReceiveMemoryWarning() {

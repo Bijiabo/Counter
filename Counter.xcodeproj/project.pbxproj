@@ -12,7 +12,24 @@
 		657046731C2022C300F0F8A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657046711C2022C300F0F8A1 /* Main.storyboard */; };
 		657046751C2022C300F0F8A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657046741C2022C300F0F8A1 /* Assets.xcassets */; };
 		657046781C2022C300F0F8A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657046761C2022C300F0F8A1 /* LaunchScreen.storyboard */; };
+		65A1A27B1C22C3AD007BB186 /* Media in Resources */ = {isa = PBXBuildFile; fileRef = 65A1A27A1C22C3AD007BB186 /* Media */; };
+		65A1A27D1C22C3E2007BB186 /* RemoteControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A1A27C1C22C3E2007BB186 /* RemoteControl.framework */; };
+		65A1A27E1C22C3E2007BB186 /* RemoteControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65A1A27C1C22C3E2007BB186 /* RemoteControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		65A1A2741C21658B007BB186 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				65A1A27E1C22C3E2007BB186 /* RemoteControl.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6570466A1C2022C300F0F8A1 /* Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +39,8 @@
 		657046741C2022C300F0F8A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		657046771C2022C300F0F8A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		657046791C2022C300F0F8A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65A1A27A1C22C3AD007BB186 /* Media */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Media; sourceTree = "<group>"; };
+		65A1A27C1C22C3E2007BB186 /* RemoteControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RemoteControl.framework; path = Carthage/Build/iOS/RemoteControl.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A1A27D1C22C3E2007BB186 /* RemoteControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +58,7 @@
 		657046611C2022C300F0F8A1 = {
 			isa = PBXGroup;
 			children = (
+				65A1A27C1C22C3E2007BB186 /* RemoteControl.framework */,
 				6570466C1C2022C300F0F8A1 /* Counter */,
 				6570466B1C2022C300F0F8A1 /* Products */,
 			);
@@ -54,6 +75,7 @@
 		6570466C1C2022C300F0F8A1 /* Counter */ = {
 			isa = PBXGroup;
 			children = (
+				65A1A27A1C22C3AD007BB186 /* Media */,
 				6570466D1C2022C300F0F8A1 /* AppDelegate.swift */,
 				6570466F1C2022C300F0F8A1 /* ViewController.swift */,
 				657046711C2022C300F0F8A1 /* Main.storyboard */,
@@ -74,6 +96,8 @@
 				657046661C2022C300F0F8A1 /* Sources */,
 				657046671C2022C300F0F8A1 /* Frameworks */,
 				657046681C2022C300F0F8A1 /* Resources */,
+				65A1A2741C21658B007BB186 /* Embed Frameworks */,
+				65A1A27F1C22C43C007BB186 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -122,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A1A27B1C22C3AD007BB186 /* Media in Resources */,
 				657046781C2022C300F0F8A1 /* LaunchScreen.storyboard in Resources */,
 				657046751C2022C300F0F8A1 /* Assets.xcassets in Resources */,
 				657046731C2022C300F0F8A1 /* Main.storyboard in Resources */,
@@ -129,6 +154,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65A1A27F1C22C43C007BB186 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RemoteControl.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		657046661C2022C300F0F8A1 /* Sources */ = {
@@ -247,7 +289,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Counter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bijiabo.Counter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -258,7 +306,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Counter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bijiabo.Counter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,6 +338,7 @@
 				6570467E1C2022C300F0F8A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

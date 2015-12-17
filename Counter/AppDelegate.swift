@@ -7,17 +7,36 @@
 //
 
 import UIKit
+import RemoteControl
+import MediaPlayer
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var player: AVPlayer = AVPlayer()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        application.beginReceivingRemoteControlEvents()
+        becomeFirstResponder()
+        
+        let musicFileURL = NSBundle.mainBundle().resourceURL!.URLByAppendingPathComponent("Media/quartersec.mp3")
+        player = AVPlayer(URL: musicFileURL )
+        player.play()
+        
         return true
     }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        RemoteControlManager.sharedManager.remoteControlReceivedWithEvent(event)
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
